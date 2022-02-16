@@ -1,38 +1,384 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700;900&display=swap');
+
+*, ::after,::before{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+:root{
+  --primary-color:#f32555;
+  --negro:#101010;
+  --negro-claro:#191919;
+}
+body{
+  background: var(--negro);
+}
+.container{
+  width: 80%;
+  margin: auto;
+}
+.title{
+  text-transform: uppercase;
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--primary-color);
+}
+.navbar{
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  background: var(--primary-color);
+}
+.navbar a{
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+  position: relative;
+}
+.navbar a::after{
+  position: absolute;
+  content: '';
+  width: 0%;
+  height: 3px;
+  background: var(--negro);
+  bottom: -10px;
+  left: 50%;
+  transition: .3s;
+}
+.navbar a:hover::after{
+  width: 100%;
+  left: 0;
+}
+
+.inicio-content{
+  padding: 50px 0;
+}
+
+/* ========================PREGUNTAS================================= */
+.head-inicio{
+  width: 100%;
+  height: 100px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+.questions-group{
+  width: 80%;
+  display: grid;
+  row-gap: 30px;
+  margin: auto;
+}
+.questions-item{
+  background: var(--negro-claro);
+  border: 1px solid transparent;
+  cursor: pointer;
+  color: #fff;
+}
+.question-content{
+  overflow: hidden;
+  height: 0;
+}
+.question-text{
+  color: #ffffff;
+  padding: 0 30px 20px 50px;
+}
+.questions-header{
+  font-size: 18px;
+  font-family: var(--font-textos);
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+  padding: 20px 20px;
+}
+
+.questions-item, .question-content,.questions-header,.question-icon{
+  transition: .3s;
+}
+
+.accordion-open .questions-header{
+  color: var(--primary-color);
+}
+
+
+/* ========================EMPLEADOS================================= */
+.test1{
+  padding: 80px 0;
+  display: flex;
+  justify-content: center;
+  min-height: 80vh;
+  gap: 50px;
+}
+
+.empleados{
+  width: 50%;
+}
+.lista-empleados{
+  border: 1px solid var(--primary-color);
+  border-radius: 20px;
+  min-height: 300px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.head-lista{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-color);
+  color: #fff;
+  padding: 20px 0 0 0;
+  flex-direction: column;
+  gap: 10px;
+}
+.head-lista h2{
+  text-transform: uppercase;
+  font-weight: 900;
+}
+.head-lista .menu-datos{
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  width: 100%;
+  text-align: left;
+  padding: 20px 10px;
+  border-top: 1px solid #fff;
+}
+.lista{
+  padding: 10px;
+  height: 500px;
+  background: var(--negro-claro);
+  color: #fff;
+  overflow-y: auto;
+
+}
+.lista .item{
+  padding: 10px;
+  border-bottom: 1px solid var(--primary-color);
+  cursor: pointer;
+  transition: .3s;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  overflow: hidden;
+}
+.item p{
+  text-align: left;
   pointer-events: none;
+  padding-right: 10px;
+}
+.item:hover{
+  background: #3a3a3a;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.campos{
+  width: 35%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
+}
+.campos .inputs{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  color: #fff;
+  font-size: 20px;
+}
+.input-item{
+  display: flex;
+  gap: 20px;
+}
+.input-item label{
+  background: var(--primary-color);
+  padding: 10px;
+}
+.inputs input{
+  background: none;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--primary-color);
+  color: rgb(207, 207, 207);
+  font-size: 18px;
+  width: 100%;
+}
+.inputs input:disabled{
+  background: #252525;
+}
+
+.buttons-content{
+  width: 100%;
+  padding: 20px 0;
+}
+.buttons{
+  display: flex;
+  gap: 20px;
+  height: 100%;
+  align-items: center;
+  
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.btn-empleado{
+  padding: 15px 0;
+  width: 150px;
+  border-radius: 50px;
+  background: none;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.btn-crear{
+  background: var(--primary-color);
+  color: #fff;
 }
 
-.App-link {
-  color: #61dafb;
+
+
+/* =====================TEST 2====================== */
+
+.pokedex-content{
+  padding: 20px 0;
+}
+.head-pokeapi{
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.cards{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+  transition: .3s;
+  min-height: 620px;
+  justify-items: center;
+}
+
+.card{
+  width: 230px;
+  background: var(--negro-claro);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-around;
+  color: #fff;
+  box-shadow: 1px 1px 7px 5px rgba(0, 0, 0, 0.247);
+  transition: .3s;
+  position: relative;
+}
+.card img{
+  width: 60%;
+}
+.card .num-pokemon{
+  color: rgb(163, 163, 163);
+  background: #1c2430;
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-size: 13px;
+}
+.card .name-pokemon{
+  text-transform: capitalize;
+  font-size: 24px;
+}
+.types{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.types .type-pokemon{
+  color: #fff;
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-size: 13px;
+  font-weight: 400;
+  background-color:var(--primary-color);
+}
+
+.header-pokedex{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+
+.paginacion{
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #fff;
+}
+.btn-pages{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  color: #fff;
+  background: var(--primary-color);
+  border: none;
+  cursor: pointer;
+  border-radius: 50px;
+}
+.disabled{
+  color: rgb(134, 134, 134);
+  pointer-events: none;
+  background-color: var(--negro-claro);
+}
+.loading{
+  height: 200px;
+  width: 100%;
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-direction: column;
+  color: #fff;
+}
+.loading i{
+  color: #fff;
+  font-size: 50px;
+}
+
+
+@media (max-width:1024px) {
+  .questions-group{
+    width: 100%;
   }
-  to {
-    transform: rotate(360deg);
+  .test1{
+    flex-direction: column;
+  }
+  .empleados{
+    width: 100%;
+  }
+  .lista{
+    height: 300px;
+  }
+  .campos{
+    width: 100%;
+    gap: 20px;
+  }
+  .campos .inputs{
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 16px;
+    justify-content: center;
+  }
+  .btn-empleado{
+    padding: 10px 0;
+    width: 180px;
+    font-size: 14px;
   }
 }
